@@ -12,6 +12,6 @@ namespace QSearcher_
         //  URL of Azure Cosmos DB endpoint
         public static readonly string URL = @"https://qsearcher-app.documents.azure.com:443/";
         // The read/write authentication key of Azure Cosmos DB endpoint
-        public static readonly string AuthKey = @"l1TRQIkhPCybhDceemKta0rMCsnaDtjGAWOhs4DLzuUQjdnza1TKtLz1TgDVq4KP5wEuFjxy2GGQG1vlQoRoZA==";
+        public static readonly string AuthKey = @"здесь должен быть ваш ключ :)";
     }
 }
