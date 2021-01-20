@@ -56,7 +56,7 @@ namespace QSearcher_.Droid
             //  Intent intent = new Intent();
             // intent.SetClass(this,PrevActivity);
             gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DefaultSignIn)
-              .RequestIdToken("764029490020-qqlka2cpckrsnljgnt0267dpctmt9t5u.apps.googleusercontent.com")
+              .RequestIdToken("вставьте свой токен :)")
               .RequestEmail()
               .Build();
             googleApiClient = new GoogleApiClient.Builder(this)
@@ -91,11 +91,11 @@ namespace QSearcher_.Droid
             if (app == null)
             {
                 var options = new FirebaseOptions.Builder()
-                    .SetProjectId("quicksearcher-83474")
-                    .SetApplicationId("quicksearcher-83474")
-                    .SetApiKey("AIzaSyAlM9sC6c3chZOMJrIvlXvImlfJ2gHr9C8")
-                    .SetDatabaseUrl("https://quicksearcher-83474.firebaseio.com")
-                    .SetStorageBucket("quicksearcher-83474.appspot.com")
+                    .SetProjectId("ж")
+                    .SetApplicationId("ж")
+                    .SetApiKey("вствьте свой апи :)")
+                    .SetDatabaseUrl("ж")
+                    .SetStorageBucket("")
                     .Build();
                 app = FirebaseApp.InitializeApp(this, options);
                 mAuth = FirebaseAuth.Instance;

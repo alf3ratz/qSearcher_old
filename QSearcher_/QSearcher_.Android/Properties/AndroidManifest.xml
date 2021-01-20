@@ -6,7 +6,7 @@
 	<uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<application android:label="QSearcher_.Android">
-		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyAsn7O_ZhhBXUlMxKU0TC4iUF0BZmTs6ec" />
+		<meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="--" />
 		<meta-data android:name="com.google.android.gms.version" android:value="@integer/google_play_services_version" />
 		<uses-library android:name="org.apache.http.legacy" android:required="false" />
 	</application>
