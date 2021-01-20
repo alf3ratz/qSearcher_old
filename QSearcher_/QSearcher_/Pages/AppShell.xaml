@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+      xmlns:controls="clr-namespace:QSearcher_.Controls"
+      xmlns:pages="clr-namespace:QSearcher_.Pages"
+       FlyoutBackgroundImage="Scooter.jpg"
+       FlyoutBackgroundImageAspect="AspectFill"
+       FlyoutHeaderBehavior="CollapseOnScroll"
+             x:Class="QSearcher_.Pages.AppShell">
+    <Shell.FlyoutHeader>
+        <StackLayout BackgroundColor="AliceBlue" >
+            <Image HeightRequest="100" Source="Scooter.png" Aspect="Fill" />
+        </StackLayout>
+    </Shell.FlyoutHeader>
+    <Shell.Resources>
+        <Style x:Key="BaseStyle"
+               TargetType="Element">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="#455A64" />
+            <Setter Property="Shell.ForegroundColor"
+                    Value="White" />
+            <Setter Property="Shell.TitleColor"
+                    Value="White" />
+            <Setter Property="Shell.DisabledColor"
+                    Value="#B4FFFFFF" />
+            <Setter Property="Shell.UnselectedColor"
+                    Value="#95FFFFFF" />
+        </Style>
+        <Style TargetType="ShellItem"
+               BasedOn="{StaticResource BaseStyle}" />
+        <Style x:Key="DomesticShell"
+               TargetType="Element"
+               BasedOn="{StaticResource BaseStyle}">
+            <Setter Property="Shell.BackgroundColor"
+                    Value="#039BE6" />
+        </Style>
+    </Shell.Resources>
+
+    <FlyoutItem Route="animals"
+                Title="Animals"
+                FlyoutDisplayOptions="AsMultipleItems"
+                >
+        <ShellContent Route="Home"
+                          Style="{StaticResource DomesticShell}"
+                         Title="Домашняя страница"
+                          Icon="home.svg"
+                          ContentTemplate="{DataTemplate pages:MainPage}" />
+        <ShellContent Route="Search"
+                          Style="{StaticResource DomesticShell}"
+                          Title="События"
+                          Icon="search.png"
+                          ContentTemplate="{DataTemplate pages:MyListPage}" />
+        <ShellContent Route="Settings"
+                      Style="{StaticResource DomesticShell}"
+                      Title="Настройки"
+                      Icon="person.png"
+                      ContentTemplate="{DataTemplate pages:PersonPage}" />
+        <ShellContent Route="Map"
+                      Style="{StaticResource DomesticShell}"
+                     Title="Карта"
+                      Icon="map.png"
+                      ContentTemplate="{DataTemplate pages:MapPage}" />
+    </FlyoutItem>
+    <ShellContent Route="Favourites"
+                  Style="{StaticResource DomesticShell}"
+                  Title="Избранное"
+                  Icon="bookmark.png"
+                  ContentTemplate="{DataTemplate pages:LovedPage}" />
+    <ShellContent Route="MostLiked"
+                  Style="{StaticResource DomesticShell}"
+                  Title="Популярное"
+                  Icon="like.png"
+                  ContentTemplate="{DataTemplate pages:LikedListPage}" />
+</Shell>

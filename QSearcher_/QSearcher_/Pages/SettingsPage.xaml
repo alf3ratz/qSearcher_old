@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="QSearcher_.Pages.SettingsPage"
+             Shell.NavBarIsVisible="false" BackgroundColor="AliceBlue" >
+    <Grid BackgroundColor="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="18*"></RowDefinition>
+
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <ImageButton HorizontalOptions="Start" VerticalOptions="Center" Margin="10,0,0,0"
+                         Source="back_arrow.png" BackgroundColor="Gray" Clicked="ImageButton_Clicked"></ImageButton>
+        </Grid>
+  <ListView x:Name="MyListView"
+            ItemsSource="{Binding Items}"
+            
+            CachingStrategy="RecycleElement" Grid.Row="1" BackgroundColor="AliceBlue" ItemSelected="MyListView_ItemSelected" >
+   
+    <ListView.ItemTemplate >
+        <DataTemplate >
+                    <!--<ViewCell IsEnabled="False">
+                        <Label Text="{Binding Items}" TextColor="Black"></Label>-->
+            <TextCell Text="{Binding }" TextColor="Black"/>
+                    <!--</ViewCell>-->
+        </DataTemplate>
+    </ListView.ItemTemplate>
+    
+    <!--Custom View Cells-->
+    <!--
+    <ListView.ItemTemplate>
+      <DataTemplate>
+        <ViewCell>
+          <StackLayout>
+            <Label Text="{Binding Text}" 
+                   d:Text="{Binding .}"
+                   Style="{DynamicResource ListItemTextStyle}" />
+            <Label Text="{Binding Detail}" 
+                   d:Text="Detail"
+                   Style="{DynamicResource ListItemDetailTextStyle}"/>
+          </StackLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+    -->
+  </ListView>
+    </Grid>
+</ContentPage>

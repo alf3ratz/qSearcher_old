@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="QSearcher_.Pages.LikedListPage" >
+    <Grid x:Name="mainGrid" BackgroundColor="AliceBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="18*"/>
+
+        </Grid.RowDefinitions>
+        <Grid x:Name="backArrowGrid" BackgroundColor="AliceBlue">
+            <ImageButton Source="back_arrow.png" BackgroundColor="DimGray" HorizontalOptions="StartAndExpand" Margin="5,5,5,5" Clicked="ImageButton_Clicked"></ImageButton>
+        </Grid>
+    <ListView Grid.Row="1" Grid.RowSpan="2" x:Name="LikedList"
+            ItemsSource="{Binding Items}"
+            ItemTapped="Handle_ItemTapped"
+            CachingStrategy="RecycleElement" RowHeight="230"
+            Shell.NavBarIsVisible="false" >
+        <ListView.ItemTemplate>
+            <DataTemplate >
+                <ViewCell >
+                    <StackLayout BackgroundColor="AliceBlue">
+                        <Grid Grid.Column="1" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="20*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0">
+                                <Frame HasShadow="True" Grid.Row="0" CornerRadius="10" Padding="0" Margin="0">
+                                    <Image x:Name="listImage" Source="{Binding Picture}" Grid.RowSpan="2" HorizontalOptions="FillAndExpand" Aspect="AspectFill"></Image>
+                                </Frame>
+                                <Frame HasShadow="True" CornerRadius="10"  BackgroundColor="Black" Opacity="0.2" Margin="0"  ></Frame>
+                                <Grid Margin="10" Grid.Row="0">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="4*"/>
+                                        <RowDefinition Height="2*"/>
+                                    </Grid.RowDefinitions>
+                                    <Frame Grid.Row="2" CornerRadius="10" Margin="-11,10,-10,-9" Padding="0"   >
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                                <RowDefinition Height="*"></RowDefinition>
+                                            </Grid.RowDefinitions>
+                                            <Label x:Name="listLabel" Grid.Row="0" Text="{Binding ShortTitle}" TextColor="Black" FontSize="Medium" Margin="5,0,0,0"></Label>
+                                            <Label Grid.Row="1" Margin="5,0,0,0" Text="{Binding DateStart}"  ></Label>
+                                        </Grid>
+                                    </Frame>
+                                    <Frame HasShadow="True" CornerRadius="10"  Grid.Row="2" BackgroundColor="Gray" Opacity="0.3" Margin="-11,10,-10,-9"   ></Frame>
+                                </Grid>
+                            </Grid>
+                            <Grid Grid.Row="1">
+                                <Grid HeightRequest="5" BackgroundColor="AliceBlue"></Grid>
+                            </Grid>
+                        </Grid>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+    </Grid>
+</ContentPage>

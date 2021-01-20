@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="QSearcher_.Pages.PersonPage"
+              Shell.NavBarIsVisible="false" x:Name="personPageMain" >
+    <Grid VerticalOptions="FillAndExpand" RowSpacing="2">
+        <Grid.RowDefinitions>
+            <RowDefinition Height ="5*"/>
+            <RowDefinition Height ="4*"/>
+            <RowDefinition Height ="8*"/>
+            <RowDefinition Height ="3*"/>
+            
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" BackgroundColor="#E0E0E0" x:Name="imageGrid" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+            <Image Source="photoProfile.png" Grid.ColumnSpan="2" x:Name="profilePhoto" Aspect="Fill" ></Image>
+        </Grid>
+        <StackLayout  Grid.Row="1"  x:Name="themeGrid"  BackgroundColor="AliceBlue" Orientation="Horizontal" HorizontalOptions="Fill"  VerticalOptions="Center" >
+            <Grid >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height ="*"/>
+                    <RowDefinition Height ="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+
+                </Grid.ColumnDefinitions>
+                <Label x:Name="userName" Grid.Column="2" HorizontalOptions="EndAndExpand" ></Label>
+                <Label Text="Пользователь" HorizontalOptions="StartAndExpand"></Label>
+                <Label Grid.Row="1"  FontSize="Medium" Text="Город"></Label>
+                <!--<Label x:Name="cityShow" Grid.Row="1" Text="Город" Grid.Column="1" HorizontalOptions="Start" ></Label>-->
+                <Button Grid.Row="1" Grid.Column="2" HorizontalOptions="End"  BackgroundColor="AliceBlue" ImageSource="cities.png" x:Name="cityPick" Clicked="cityPick_Clicked"></Button>
+
+            </Grid>
+        </StackLayout>
+        <Grid Grid.Row="2" x:Name="settingsGrid"  BackgroundColor="AliceBlue" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height ="2*"/>
+                <RowDefinition Height ="*"/>
+            </Grid.RowDefinitions>
+            <Frame  Grid.Row="0"   HasShadow="True" CornerRadius="12"  VerticalOptions="Start"  >
+                <Grid HorizontalOptions="Fill" VerticalOptions="Fill"  >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Margin="-10,-25,10,5" Text="Настройки" FontSize="16" FontAttributes="Bold" ></Label>
+                    <Label Text="Отображать мой лайк"></Label>
+                    <Switch  Grid.Column="1" x:Name="liker"  Toggled="liker_Toggled"  ThumbColor="Red"></Switch>
+                </Grid>
+            </Frame>
+            
+        </Grid>
+
+        <Grid Grid.Row="3" BackgroundColor="AliceBlue"  x:Name="lastGrid" VerticalOptions="FillAndExpand">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+
+            </Grid.RowDefinitions>
+            <Button Grid.Row="0" Margin="5,5,5,0" ImageSource="like.png" 
+                    HorizontalOptions="StartAndExpand" VerticalOptions="EndAndExpand" Clicked="FavPage_Clicked">
+
+            </Button>
+            <Button Grid.Row="1" Margin="5,5,5,5" Text="Выход" x:Name="signOut_button" HorizontalOptions="StartAndExpand"
+                    VerticalOptions="End"  Clicked="signOut_button_Clicked"></Button>
+            <Button HorizontalOptions="End" Text="Применить" Clicked="Button_Clicked"></Button>
+        </Grid>
+    </Grid>
+</ContentPage>

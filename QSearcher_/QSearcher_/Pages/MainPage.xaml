@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="QSearcher_.Pages.MainPage"
+             Shell.NavBarIsVisible="false">
+    <Grid VerticalOptions="FillAndExpand" BackgroundColor="AliceBlue" RowSpacing="3" x:Name="MainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height ="*"/>
+            <RowDefinition Height ="3*"/>
+            <RowDefinition Height ="3*"/>
+            <RowDefinition Height ="5*"/>
+            <RowDefinition Height ="6*"/>
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="0"  BackgroundColor="#7E57C2"  VerticalOptions="FillAndExpand" >
+
+            <Image Source="Scooter.jpg" Aspect="Fill" Grid.RowSpan="4" ></Image>
+        </StackLayout>
+        <Frame Grid.Row="1" Grid.RowSpan="2" x:Name="one"  HasShadow="True" CornerRadius="5" Padding="0" Margin="5,-10,5,-10">
+            <Image x:Name="earlyEvent"  HorizontalOptions="FillAndExpand" Aspect="AspectFill"/>
+        </Frame>
+
+        <Frame Grid.Row="1" Grid.RowSpan="2" x:Name="two" HasShadow="True" CornerRadius="5" Margin="5,-10,5,-10" BackgroundColor="Black" Opacity="0.2" >
+        </Frame>
+        <Grid Grid.Row="1" Grid.RowSpan="2" x:Name="three"  Margin="5,5,5,5" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <Label  Grid.Row="0" VerticalOptions="Start" Margin="2,2,2,2"  Text="БЛИЖАЙШЕЕ" FontSize="Medium" TextColor="White"/>
+            <Label x:Name="earlyEventTitle" Grid.Row="1" VerticalOptions="Start" HorizontalOptions="Start" Margin="2,2,2,2"  Text="БЛИЖАЙШЕЕ" TextColor="White"/>
+            <Button Grid.RowSpan="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Opacity="0" Clicked="Button_Clicked"></Button>
+        </Grid>
+
+        <Frame Grid.Row="3" HasShadow="True" CornerRadius="10" Padding="0" Margin="20,-30,20,20">
+            <Image x:Name="eventOfTheDayPicture" Grid.RowSpan="3" HorizontalOptions="FillAndExpand" Aspect="AspectFill"/>
+        </Frame>
+
+        <Frame Grid.Row="3" HasShadow="True" CornerRadius="10" Margin="20,-30,20,20" BackgroundColor="Black" Opacity="0.2">
+        </Frame>
+
+        <Grid Grid.Row="3" x:Name="mainFrame" Margin="30,-15,30,30" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="4*"/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" Text="ПОСЛЕДНЕЕ"  FontSize="Medium" TextColor="White"/>
+            <Label x:Name="eventOfTheDayLabel" VerticalOptions="End" Grid.Row="1" BindingContext="{Binding Source}" Text="{Binding Title}" FontSize="Medium" TextColor="White"/>
+            <Label x:Name="eventOfTheDayLabelDesc" VerticalOptions="End" Grid.Row="2" Text="{Binding Description}" TextColor="White"/>
+            <Button Grid.RowSpan="3" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Opacity="0" Clicked="Button_Clicked_1"></Button>
+        </Grid>
+        <ListView  Grid.Row="4" Grid.RowSpan="2" x:Name="contactsListView"
+                  HasUnevenRows="False"  SeparatorVisibility="Default" SeparatorColor="AliceBlue"
+                   ItemTapped="contactsListView_ItemTapped" RowHeight="230" >
+            <ListView.ItemTemplate >
+                <DataTemplate >
+                    <ViewCell >
+                        <StackLayout >
+                            <Grid Grid.Column="1" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="20*"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0">
+                                    <Frame HasShadow="True" Grid.Row="0" CornerRadius="10" Padding="0" Margin="0">
+                                        <Image x:Name="listImage" Source="{Binding Picture}" Grid.RowSpan="2" HorizontalOptions="FillAndExpand" Aspect="AspectFill"></Image>
+                                    </Frame>
+                                    <Frame HasShadow="True" CornerRadius="10"  BackgroundColor="Black" Opacity="0.2" Margin="0"  ></Frame>
+                                    <Grid Margin="10" Grid.Row="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="4*"/>
+                                            <RowDefinition Height="2*"/>
+                                        </Grid.RowDefinitions>
+                                        <Frame Grid.Row="2" CornerRadius="10" Margin="-11,10,-10,-9" Padding="0"   >
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"></RowDefinition>
+                                                    <RowDefinition Height="*"></RowDefinition>
+                                                </Grid.RowDefinitions>
+                                                <Label x:Name="listLabel" Grid.Row="0" Text="{Binding ShortTitle}" TextColor="Black" FontSize="Medium" Margin="5,0,0,0"></Label>
+                                                <Label Grid.Row="1" Margin="5,0,0,0" Text="{Binding DateStart}"  ></Label>
+                                            </Grid>
+                                        </Frame>
+                                        <Frame HasShadow="True" CornerRadius="10"  Grid.Row="2" BackgroundColor="Gray" Opacity="0.3" Margin="-11,10,-10,-9"   ></Frame>
+                                    </Grid>
+                                </Grid>
+                            </Grid>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Grid Grid.RowSpan="6" x:Name="SplashGrid" BackgroundColor="{StaticResource Primary}">
+            <Image x:Name="Logo" Source="loadFifth" HorizontalOptions="Center" 
+                   VerticalOptions="Center">
+                <Image.TranslationY>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="Android">-14</On>
+                    </OnPlatform>
+                </Image.TranslationY>
+            </Image>
+        </Grid>
+    </Grid>
+</ContentPage>

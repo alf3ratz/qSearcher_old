@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="QSearcher_.Pages.LovedPage"
+             Shell.NavBarIsVisible="false" 
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Svg.Forms;assembly=FFImageLoading.Svg.Forms">
+    <Grid VerticalOptions="FillAndExpand" BackgroundColor="AliceBlue" x:Name="favouritePage">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"></RowDefinition>
+            <RowDefinition Height="8*"></RowDefinition>
+        </Grid.RowDefinitions>
+       
+        <Image Source="nothing.png" Grid.Row="0" x:Name="nothingImage"></Image>
+        <ListView   Grid.RowSpan="2"   x:Name="lovedList"
+                 HasUnevenRows="False" SeparatorVisibility="Default"
+                   SeparatorColor="#dbdbdb"
+                  SelectedItem="{Binding Selected}"
+                   ItemTapped="lovedList_ItemTapped"
+                    RowHeight="180"
+                    RefreshControlColor="AliceBlue"
+                  BackgroundColor="AliceBlue">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="38*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <Frame CornerRadius="1" Grid.Column="1">
+                                <Grid VerticalOptions="Fill" HorizontalOptions="Fill" Margin="-10,-10,-10,-10">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1.6*"></ColumnDefinition>
+                                        <ColumnDefinition Width="*"></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                        <RowDefinition Height="*"></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <Image Source="{Binding Picture}" Grid.RowSpan="2" Grid.Column="0" Aspect="AspectFill"></Image>
+                                    <Label Grid.Column="1" Grid.Row="0" Text="{Binding ShortTitle}"></Label>
+                                    <Label Grid.Column="1" Grid.Row="1" Text="{Binding DateStart}"></Label>
+                                </Grid>
+                            </Frame>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</ContentPage>

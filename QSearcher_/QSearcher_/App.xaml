@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="QSearcher_.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Primary">#8ac8ff</Color>
+        </ResourceDictionary>
+        <DataTemplate x:Key="EventSearchTemplate">
+            <Grid Padding="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.15*" />
+                    <ColumnDefinition Width="0.85*" />
+                </Grid.ColumnDefinitions>
+                <Image Source="{Binding Picture}" 
+                       Aspect="AspectFill"
+                       HeightRequest="40" 
+                       WidthRequest="40" />
+                <Label Grid.Column="1" 
+                       Text="{Binding ShortTitle}" 
+                       FontAttributes="Bold" />
+            </Grid>
+        </DataTemplate>
+    </Application.Resources>
+</Application>
